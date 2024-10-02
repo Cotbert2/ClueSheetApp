@@ -1,0 +1,7 @@
+{
+  "name": "clueApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
