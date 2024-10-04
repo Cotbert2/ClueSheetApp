@@ -9,4 +9,14 @@ export class HomePage {
 
   constructor() {}
 
+  numberOfPLayers : number = 4;
+
+  who : string [] = [
+    'Verduzco', 'Mostaza', 'Marlene'
+  ];
+
+  where : string [] = [];
+
+  with: string []  = [];
+
 }
