@@ -1,0 +1,21 @@
+.input-player{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.input-player-number{
+    width: 10%;
+    background-color: rgba(165, 165, 170, 0.709);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+    margin: 2rem auto 0rem auto;
+    font-size: 1.5rem;
+}
+

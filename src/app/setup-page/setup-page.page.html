@@ -1,0 +1,17 @@
+
+<ion-content [fullscreen]="true">
+  <div class="title">
+    <strong >Ingresemos un poco de información</strong>
+  </div>
+  <ion-item-divider></ion-item-divider>
+  <div class="content">
+    <div class="input-player">
+      <ion-label>Ingresa en número de jugadores</ion-label>
+      <ion-input type="number" max="6" min="2" step="1" class="input-player-number" placeholder="2"
+      [(ngModel)]="numberOfPlayers" (ionChange) = "printNumberOfPlayer()"></ion-input>
+    </div>
+
+    <ion-item-divider></ion-item-divider>
+
+  </div>
+</ion-content>
