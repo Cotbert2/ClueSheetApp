@@ -11,13 +11,22 @@ export class HomePage {
 
   numberOfPLayers : number = 4;
 
+  repetitions = Array(this.numberOfPLayers);
+
   who : string [] = [
-    'Verduzco', 'Mostaza', 'Marlene'
+    'Verduzco', 'Mostaza', 'Marlene',
+    'Moradillo', 'Escarlata' , 'Blanca'
+  ];
+  with: string []  = [
+    'Candelabro', 'Daga', 'Tubo de plomo',
+    'Revólver', 'Soga', ' Llave Inglesa'
   ];
 
-  where : string [] = [];
+  where : string [] = [
+    'Salón de Baile', 'Sala de billar', 'Terraza',
+    'Comedor', 'Pasillo', 'Cocina',
+    'Bibliotecas', 'Sala', 'Estudio'
+  ];
 
-  with: string []  = [];
-  
 
 }

@@ -30,9 +30,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header collapse="">
     <ion-toolbar>
-      <ion-title size="large">Clue</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -42,7 +41,7 @@
     <ion-grid>
       <ion-row *ngFor="let i of who">
         <ion-col>{{i}}</ion-col>
-        <ion-col>
+        <ion-col *ngFor="let _ of repetitions">
           <!--TODO: change input form-->
             <input type="radio">
         </ion-col>
