@@ -20,7 +20,7 @@
     <ion-item-divider></ion-item-divider>
 
     <ion-item>
-      <ion-select label="Quien Empieza?" placeholder="El pepe?">
+      <ion-select  label="Quien Empieza?" placeholder="El pepe?">
         <ion-select-option *ngFor="let i of this.playersNames" value="{{i}}">{{i}}</ion-select-option>
       </ion-select>
     </ion-item>
@@ -28,5 +28,4 @@
   </div>
 
   <ion-button (click) ="startGame()"  class="start-button" shape="round">Jugar</ion-button>
-
 </ion-content>

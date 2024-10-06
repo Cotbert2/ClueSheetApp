@@ -13,21 +13,14 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
+  
   color: #8c8c8c;
-
+  
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
-}
-
-ion-col {
-  background-color: #135d54;
-  border: solid 1px #fff;
-  color: #fff;
-  text-align: center;
 }
 
 .annucment{}
@@ -40,4 +33,16 @@ ion-col {
 .toolbar{
   display: flex;
   justify-content: center;
+}
+
+ion-col {
+  background-color: #135d54;
+  border: solid 1px #fff;
+  color: #fff;
+  text-align: center;
+}
+
+
+ion-icon{
+  margin-right: 10%;
 }

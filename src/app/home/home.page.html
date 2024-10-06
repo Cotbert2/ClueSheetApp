@@ -9,9 +9,14 @@
 
   <div id="container">
     <!--Who?-->
-    <strong>Who?</strong>
+    <strong>Quién?</strong>
     <ion-grid>
-      <ion-row *ngFor="let i of who">
+      <ion-row *ngFor="let i of who; let indexWho = index">
+        <ion-col>
+          <ion-icon *ngIf="!this.lockWho[indexWho]" name="lock-open-outline" (click) ="inversorWho(indexWho)"></ion-icon>
+          <ion-icon *ngIf="this.lockWho[indexWho]" name="lock-closed-outline" (click) ="inversorWho(indexWho)"></ion-icon>
+          <ion-icon name="trash-bin-outline"></ion-icon>
+        </ion-col>
         <ion-col>{{i}}</ion-col>
         <ion-col *ngFor="let _ of repetitions" size="1" >
           <!--TODO: change input form-->
@@ -21,9 +26,14 @@
     </ion-grid>
 
     <!--Who?-->
-    <strong>With?</strong>
+    <strong>Con Qué?</strong>
     <ion-grid>
-      <ion-row *ngFor="let i of with">
+      <ion-row *ngFor="let i of with; let indexWith =index">
+        <ion-col>
+          <ion-icon *ngIf="!this.lockWho[indexWith]" name="lock-open-outline" (click) ="inversorWho(indexWith)"></ion-icon>
+          <ion-icon *ngIf="this.lockWho[indexWith]" name="lock-closed-outline" (click) ="inversorWho(indexWith)"></ion-icon>
+          <ion-icon name="trash-bin-outline"></ion-icon>
+        </ion-col>
         <ion-col>{{i}}</ion-col>
         <ion-col *ngFor="let _ of repetitions" size="1" >
           <!--TODO: change input form-->
@@ -34,9 +44,14 @@
 
 
     <!--Where?-->
-    <strong>Where?</strong>
+    <strong>Dónde?</strong>
     <ion-grid>
-      <ion-row *ngFor="let i of where">
+      <ion-row *ngFor="let i of where; let indexWhere = index">
+        <ion-col>
+          <ion-icon *ngIf="!this.lockWho[indexWhere]" name="lock-open-outline" (click) ="inversorWho(indexWhere)"></ion-icon>
+          <ion-icon *ngIf="this.lockWho[indexWhere]" name="lock-closed-outline" (click) ="inversorWho(indexWhere)"></ion-icon>
+          <ion-icon name="trash-bin-outline"></ion-icon>
+        </ion-col>
         <ion-col>{{i}}</ion-col>
         <ion-col *ngFor="let _ of repetitions" size="1" >
           <!--TODO: change input form-->

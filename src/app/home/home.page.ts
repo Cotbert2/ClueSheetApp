@@ -22,12 +22,24 @@ export class HomePage implements OnInit{
     this.numberOfPlayers =  this.dataPersistanceService.getData("numberOfPlayers");
     console.log(`number of players ${this.dataPersistanceService.getData("numberOfPlayers")}`);
     this.repetitions = Array(this.numberOfPlayers);
+
+    //init lock booleans value
+    this.lockWho.fill(true);
+    this.lockWhere.fill(true);
+    this.lockWith.fill(true);
   }
 
   who : string [] = [
     'Verduzco', 'Mostaza', 'Marlene',
     'Moradillo', 'Escarlata' , 'Blanca'
   ];
+
+  lockWho : boolean [] = [];
+  lockWhere : boolean [] = [];
+  lockWith : boolean [] = [];
+
+
+
   with: string []  = [
     'Candelabro', 'Daga', 'Tubo de plomo',
     'Revólver', 'Soga', ' Llave Inglesa'
@@ -38,6 +50,17 @@ export class HomePage implements OnInit{
     'Comedor', 'Pasillo', 'Cocina',
     'Bibliotecas', 'Sala', 'Estudio'
   ];
+
+  inversorWho (indexNum : number) : void {
+    this.lockWho[indexNum] = !this.lockWho[indexNum];
+  }
+
+  inversorWhere (indexNum : number) : void {
+    this.lockWhere[indexNum] = !this.lockWhere[indexNum];
+  }
+  inversorWith (indexNum : number) : void {
+    this.lockWith[indexNum] = !this.lockWith[indexNum];
+  }
 
 
 }
