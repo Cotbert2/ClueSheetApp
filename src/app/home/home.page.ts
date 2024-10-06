@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataPersistanceService } from '../services/data-persistance.service';
 
 @Component({
@@ -6,15 +6,23 @@ import { DataPersistanceService } from '../services/data-persistance.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   constructor(
     private dataPersistanceService: DataPersistanceService
   ) {}
 
-  numberOfPLayers : number = 2;
 
-  repetitions = Array(this.numberOfPLayers);
+  data : any;
+  playersName : string [] = [];
+  numberOfPlayers : number = 2;
+  repetitions : any;
+
+  ngOnInit(): void {
+    this.numberOfPlayers =  this.dataPersistanceService.getData("numberOfPlayers");
+    console.log(`number of players ${this.dataPersistanceService.getData("numberOfPlayers")}`);
+    this.repetitions = Array(this.numberOfPlayers);
+  }
 
   who : string [] = [
     'Verduzco', 'Mostaza', 'Marlene',

@@ -15,11 +15,10 @@ export class SetupPagePage implements OnInit {
     private NavController : NavController,
     private dataPersistanceService: DataPersistanceService,
     private toastManager : ToastController,
-  ) { }
+  ) {}
+
   numberOfPlayers : number = 2;
-
   playersPlaceholders : string [] = [];
-
   playersNames: string [] = [];
 
   ngOnInit() {
@@ -28,9 +27,9 @@ export class SetupPagePage implements OnInit {
 
   printNumberOfPlayer() : void{
     this.playersPlaceholders = [];
-    this.playersNames =[];
+    this.playersNames = [];
     console.log('Number of players: ' + this.numberOfPlayers);
-    if(this.numberOfPlayers >6 || this.numberOfPlayers <2) this.numberOfPlayers = 2;
+    if(this.numberOfPlayers > 6 || this.numberOfPlayers < 2) this.numberOfPlayers = 2;
 
     this.buildPlaceholders();
   }
@@ -44,12 +43,14 @@ export class SetupPagePage implements OnInit {
 
   startGame() : void {
     console.log("Starting game");
-   //this.NavController.navigateForward('home');
-   console.log(this.playersNames);
-   if(!this.playersNameAreComplete())
+    console.log(this.playersNames);
+    if(!this.playersNameAreComplete())
       this.showCompleteFormToast('Llena todos los campos primero :(');
-    else
+    else {
       this.NavController.navigateForward('home');
+      this.dataPersistanceService.setData('playersName',this.playersNames);
+      this.dataPersistanceService.setData('numberOfPlayers',this.numberOfPlayers);
+    }
   }
 
   playersNameAreComplete () : boolean {
