@@ -18,10 +18,9 @@
           <ion-icon name="trash-bin-outline"></ion-icon>
         </ion-col>
         <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions" size="1" >
-          <!--TODO: change input form-->
-            <input type="radio">
-        </ion-col>
+          <ion-col *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
+            <input type="radio" value="{{this.playersName[indexPlayer]}}">
+          </ion-col>
       </ion-row>
     </ion-grid>
 

@@ -47,9 +47,9 @@ export class SetupPagePage implements OnInit {
     if(!this.playersNameAreComplete())
       this.showCompleteFormToast('Llena todos los campos primero :(');
     else {
-      this.NavController.navigateForward('home');
       this.dataPersistanceService.setData('playersName',this.playersNames);
       this.dataPersistanceService.setData('numberOfPlayers',this.numberOfPlayers);
+      this.NavController.navigateForward('home');
     }
   }
 
