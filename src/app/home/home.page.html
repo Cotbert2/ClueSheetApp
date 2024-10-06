@@ -11,6 +11,16 @@
     <!--Who?-->
     <strong>Quién?</strong>
     <ion-grid>
+      <ion-row >
+        <!--
+          <ion-col offset="{{offset[numberOfPlayers]}}"></ion-col>
+          -->
+        <ion-col *ngFor="let playersLabel of playersLabel; let isFirstLabel = first"
+        [offset]="isFirstLabel ? offset[numberOfPlayers] : 0" size="1">
+          <p>{{playersLabel}}</p>
+        </ion-col>
+        
+      </ion-row>
       <ion-row *ngFor="let i of who; let indexWho = index">
         <ion-col>
           <ion-icon *ngIf="!this.lockWho[indexWho]" name="lock-open-outline" (click) ="inversorWho(indexWho)"></ion-icon>
@@ -19,7 +29,10 @@
         </ion-col>
         <ion-col>{{i}}</ion-col>
           <ion-col *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
-            <input type="radio" value="{{this.playersName[indexPlayer]}}">
+            <input type="radio"
+            value="{{this.playersName[indexPlayer]}}"
+            [(ngModel)] = "this.whoPlayers[indexWho]"
+          [name] = "'radioGroupwho' + indexWho + indexPlayer ">
           </ion-col>
       </ion-row>
     </ion-grid>
@@ -34,9 +47,11 @@
           <ion-icon name="trash-bin-outline"></ion-icon>
         </ion-col>
         <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions" size="1" >
-          <!--TODO: change input form-->
-            <input type="radio">
+        <ion-col *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
+            <input type="radio"
+            value="{{this.playersName[indexPlayer]}}"
+            [(ngModel)] = "this.withPlayers[indexWith]"
+          [name] = "'radioGroupwith' + indexWith + indexPlayer ">
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -52,9 +67,11 @@
           <ion-icon name="trash-bin-outline"></ion-icon>
         </ion-col>
         <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions" size="1" >
-          <!--TODO: change input form-->
-            <input type="radio">
+        <ion-col *ngFor="let _ of repetitions ;let indexPlayer = index" size="1" >
+          <input type="radio"
+          value="{{this.playersName[indexPlayer]}}"
+          [(ngModel)] = "this.wherePlayers[indexWhere]"
+        [name] = "'radioGroupwhere' + indexWhere + indexPlayer ">
         </ion-col>
       </ion-row>
     </ion-grid>

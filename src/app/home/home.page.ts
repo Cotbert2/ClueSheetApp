@@ -19,6 +19,15 @@ export class HomePage implements OnInit{
   numberOfPlayers : number = 2;
   repetitions : any;
 
+
+  offset : any = {
+    '2' : 10,
+    '3' : 9,
+    '4' : 8,
+    '5' : 7,
+    '6' : 6,
+  };
+
   ngOnInit(): void {
     this.numberOfPlayers =  this.dataPersistanceService.getData("numberOfPlayers");
     this.playersName = this.dataPersistanceService.getData("playersName");
@@ -32,19 +41,15 @@ export class HomePage implements OnInit{
 
     this.buildLabels();
 
+
+
   }
 
   who : string [] = [
     'Verduzco', 'Mostaza', 'Marlene',
     'Moradillo', 'Escarlata' , 'Blanca'
   ];
-
-  lockWho : boolean [] = [];
-  lockWhere : boolean [] = [];
-  lockWith : boolean [] = [];
-
-
-
+  
   with: string []  = [
     'Candelabro', 'Daga', 'Tubo de plomo',
     'Revólver', 'Soga', ' Llave Inglesa'
@@ -55,6 +60,16 @@ export class HomePage implements OnInit{
     'Comedor', 'Pasillo', 'Cocina',
     'Bibliotecas', 'Sala', 'Estudio'
   ];
+
+
+  lockWho : boolean [] = [];
+  lockWhere : boolean [] = [];
+  lockWith : boolean [] = [];
+
+  whoPlayers = new Array(this.who.length).fill("");
+  withPlayers = new Array(this.with.length).fill("");
+  wherePlayers = new Array(this.where.length).fill("");
+
 
   inversorWho (indexNum : number) : void {
     this.lockWho[indexNum] = !this.lockWho[indexNum];
@@ -95,6 +110,25 @@ export class HomePage implements OnInit{
 
   isUnique(elements : string[], element: string) : boolean{
     return elements.indexOf(element) === elements.lastIndexOf(element);
+  }
+
+  
+
+  cleanRow(memotecnic : string, indexPlayer : number) : void {
+    switch(memotecnic){
+      case 'who':
+        this.whoPlayers[indexPlayer] = '';
+        break;
+
+      case 'where':
+        this.wherePlayers[indexPlayer] = '';
+
+        break;
+
+      case 'with':
+        this.withPlayers[indexPlayer] = '';
+        break;
+    }
   }
 
 
