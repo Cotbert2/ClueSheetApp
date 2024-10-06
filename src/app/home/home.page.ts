@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataPersistanceService } from '../services/data-persistance.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private dataPersistanceService: DataPersistanceService
+  ) {}
 
-  numberOfPLayers : number = 4;
+  numberOfPLayers : number = 2;
 
   repetitions = Array(this.numberOfPLayers);
 

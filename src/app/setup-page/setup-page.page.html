@@ -13,5 +13,11 @@
 
     <ion-item-divider></ion-item-divider>
 
+    <ion-card *ngFor="let i of playersPlaceholders; let indexName = index" class="info-player">
+          <ion-input  type="text" class="player-input-name" placeholder="{{i}}" fill="outline" [(ngModel)]="playersNames[indexName]"></ion-input>
+    </ion-card>
   </div>
+
+  <ion-button (click) ="startGame()"  class="start-button" shape="round">Jugar</ion-button>
+
 </ion-content>

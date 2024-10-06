@@ -1,39 +1,11 @@
-<!-- 
- 
+<!--Main page-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="toolbar">
+    <img src="assets/clueLogo.png" class="clueLogo"/>
   </div>
-</ion-content>
-
--->
-
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Clue</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="">
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-header>
 
   <div id="container">
     <!--Who?-->
@@ -41,7 +13,7 @@
     <ion-grid>
       <ion-row *ngFor="let i of who">
         <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions">
+        <ion-col *ngFor="let _ of repetitions" size="1" >
           <!--TODO: change input form-->
             <input type="radio">
         </ion-col>
@@ -53,6 +25,10 @@
     <ion-grid>
       <ion-row *ngFor="let i of with">
         <ion-col>{{i}}</ion-col>
+        <ion-col *ngFor="let _ of repetitions" size="1" >
+          <!--TODO: change input form-->
+            <input type="radio">
+        </ion-col>
       </ion-row>
     </ion-grid>
 
@@ -62,10 +38,12 @@
     <ion-grid>
       <ion-row *ngFor="let i of where">
         <ion-col>{{i}}</ion-col>
+        <ion-col *ngFor="let _ of repetitions" size="1" >
+          <!--TODO: change input form-->
+            <input type="radio">
+        </ion-col>
       </ion-row>
     </ion-grid>
 
   </div>
-
-
 </ion-content>

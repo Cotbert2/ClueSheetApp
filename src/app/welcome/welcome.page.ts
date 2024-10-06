@@ -17,7 +17,7 @@ export class WelcomePage implements OnInit {
   }
 
   goToHome(){
-    this.navControler.navigateForward('/home');
+    this.navControler.navigateForward('/setup-page');
   }
 
 }
