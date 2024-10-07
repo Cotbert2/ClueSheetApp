@@ -31,7 +31,7 @@
         <ion-col [ngClass]="{'selected-row' : highlightWho[indexWho]}">{{i}}</ion-col>
           <ion-col [ngClass]="{'selected-row' : highlightWho[indexWho]}" *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
             <input type="radio" 
-            [disabled]="lockWith[indexWho] && this.playersName[indexPlayer] != this.whoPlayers[indexWho]"
+            [disabled]="lockWho[indexWho] && this.playersName[indexPlayer] != this.whoPlayers[indexWho]"
             value="{{this.playersName[indexPlayer]}}"
             [(ngModel)] = "this.whoPlayers[indexWho]"
           [name] = "'radioGroupwho' + indexWho + indexPlayer ">
@@ -52,7 +52,7 @@
         <ion-col [ngClass]="{'selected-row' : highlightWith[indexWith]}">{{i}}</ion-col>
         <ion-col [ngClass]="{'selected-row' : highlightWith[indexWith]}" *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
             <input type="radio"
-            [disabled]="lockWho[indexWith] && this.playersName[indexPlayer] != this.whoPlayers[indexWith]"
+            [disabled]="lockWith[indexWith] && this.playersName[indexPlayer] != this.withPlayers[indexWith]"
             value="{{this.playersName[indexPlayer]}}"
             [(ngModel)] = "this.withPlayers[indexWith]"
           [name] = "'radioGroupwith' + indexWith + indexPlayer ">
@@ -74,7 +74,7 @@
         <ion-col [ngClass]="{'selected-row' : highlightWhere[indexWhere]}">{{i}}</ion-col>
         <ion-col [ngClass]="{'selected-row' : highlightWhere[indexWhere]}" *ngFor="let _ of repetitions ;let indexPlayer = index" size="1" >
           <input type="radio"
-          [disabled]="lockWhere[indexWhere] && this.playersName[indexPlayer] != this.whoPlayers[indexWhere]"
+          [disabled]="lockWhere[indexWhere] && this.playersName[indexPlayer] != this.wherePlayers[indexWhere]"
           value="{{this.playersName[indexPlayer]}}"
           [(ngModel)] = "this.wherePlayers[indexWhere]"
         [name] = "'radioGroupwhere' + indexWhere + indexPlayer ">
