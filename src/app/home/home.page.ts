@@ -66,6 +66,11 @@ export class HomePage implements OnInit{
   lockWhere : boolean [] = [];
   lockWith : boolean [] = [];
 
+
+  highlightWho = new Array(this.who.length).fill(false);
+  highlightWith = new Array(this.with.length).fill(false);
+  highlightWhere = new Array(this.where.length).fill(false);
+
   whoPlayers = new Array(this.who.length).fill("");
   withPlayers = new Array(this.with.length).fill("");
   wherePlayers = new Array(this.where.length).fill("");
@@ -127,6 +132,25 @@ export class HomePage implements OnInit{
 
       case 'with':
         this.withPlayers[indexPlayer] = '';
+        break;
+    }
+  }
+
+  //highligths
+  activateHighligths(memotecnic : string, index: number) : void {
+    console.log('flag prssed down');
+    switch(memotecnic){
+      case 'who':
+        console.log('who flag')
+        this.highlightWho[index] = !this.highlightWho[index];
+        break;
+
+      case 'with':
+        this.highlightWith[index] = !this.highlightWith[index];
+        break;
+        
+      case 'where':
+        this.highlightWhere[index] = !this.highlightWhere[index];
         break;
     }
   }

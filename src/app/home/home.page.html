@@ -21,15 +21,17 @@
         </ion-col>
         
       </ion-row>
-      <ion-row *ngFor="let i of who; let indexWho = index">
-        <ion-col>
+      <ion-row *ngFor="let i of who; let indexWho = index" >
+        <ion-col [ngClass]="{'selected-row' : highlightWho[indexWho]}">
+          <ion-icon name="flag-outline" (click)="activateHighligths('who',indexWho)"></ion-icon>
           <ion-icon *ngIf="!this.lockWho[indexWho]" name="lock-open-outline" (click) ="inversorWho(indexWho)"></ion-icon>
           <ion-icon *ngIf="this.lockWho[indexWho]" name="lock-closed-outline" (click) ="inversorWho(indexWho)"></ion-icon>
-          <ion-icon name="trash-bin-outline"></ion-icon>
+          <ion-icon name="trash-bin-outline" (click)="cleanRow('who',indexWho)"></ion-icon>
         </ion-col>
-        <ion-col>{{i}}</ion-col>
-          <ion-col *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
-            <input type="radio"
+        <ion-col [ngClass]="{'selected-row' : highlightWho[indexWho]}">{{i}}</ion-col>
+          <ion-col [ngClass]="{'selected-row' : highlightWho[indexWho]}" *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
+            <input type="radio" 
+            [disabled]="lockWith[indexWho] && this.playersName[indexPlayer] != this.whoPlayers[indexWho]"
             value="{{this.playersName[indexPlayer]}}"
             [(ngModel)] = "this.whoPlayers[indexWho]"
           [name] = "'radioGroupwho' + indexWho + indexPlayer ">
@@ -40,15 +42,17 @@
     <!--Who?-->
     <strong>Con Qué?</strong>
     <ion-grid>
-      <ion-row *ngFor="let i of with; let indexWith =index">
-        <ion-col>
+      <ion-row *ngFor="let i of with; let indexWith = index">
+        <ion-col [ngClass]="{'selected-row' : highlightWith[indexWith]}">
+          <ion-icon name="flag-outline" (click)="activateHighligths('with',indexWith)"></ion-icon>
           <ion-icon *ngIf="!this.lockWho[indexWith]" name="lock-open-outline" (click) ="inversorWho(indexWith)"></ion-icon>
           <ion-icon *ngIf="this.lockWho[indexWith]" name="lock-closed-outline" (click) ="inversorWho(indexWith)"></ion-icon>
-          <ion-icon name="trash-bin-outline"></ion-icon>
+          <ion-icon name="trash-bin-outline" (click)="cleanRow('with', indexWith)"></ion-icon>
         </ion-col>
-        <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
+        <ion-col [ngClass]="{'selected-row' : highlightWith[indexWith]}">{{i}}</ion-col>
+        <ion-col [ngClass]="{'selected-row' : highlightWith[indexWith]}" *ngFor="let _ of repetitions; let indexPlayer = index" size="1" >
             <input type="radio"
+            [disabled]="lockWho[indexWith] && this.playersName[indexPlayer] != this.whoPlayers[indexWith]"
             value="{{this.playersName[indexPlayer]}}"
             [(ngModel)] = "this.withPlayers[indexWith]"
           [name] = "'radioGroupwith' + indexWith + indexPlayer ">
@@ -60,15 +64,17 @@
     <!--Where?-->
     <strong>Dónde?</strong>
     <ion-grid>
-      <ion-row *ngFor="let i of where; let indexWhere = index">
-        <ion-col>
+      <ion-row *ngFor="let i of where; let indexWhere = index" >
+        <ion-col [ngClass]="{'selected-row' : highlightWhere[indexWhere]}">
+          <ion-icon name="flag-outline" (click)="activateHighligths('where',indexWhere)"></ion-icon>
           <ion-icon *ngIf="!this.lockWho[indexWhere]" name="lock-open-outline" (click) ="inversorWho(indexWhere)"></ion-icon>
           <ion-icon *ngIf="this.lockWho[indexWhere]" name="lock-closed-outline" (click) ="inversorWho(indexWhere)"></ion-icon>
-          <ion-icon name="trash-bin-outline"></ion-icon>
+          <ion-icon name="trash-bin-outline" (click)="cleanRow('where', indexWhere)"></ion-icon>
         </ion-col>
-        <ion-col>{{i}}</ion-col>
-        <ion-col *ngFor="let _ of repetitions ;let indexPlayer = index" size="1" >
+        <ion-col [ngClass]="{'selected-row' : highlightWhere[indexWhere]}">{{i}}</ion-col>
+        <ion-col [ngClass]="{'selected-row' : highlightWhere[indexWhere]}" *ngFor="let _ of repetitions ;let indexPlayer = index" size="1" >
           <input type="radio"
+          [disabled]="lockWhere[indexWhere] && this.playersName[indexPlayer] != this.whoPlayers[indexWhere]"
           value="{{this.playersName[indexPlayer]}}"
           [(ngModel)] = "this.wherePlayers[indexWhere]"
         [name] = "'radioGroupwhere' + indexWhere + indexPlayer ">

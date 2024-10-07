@@ -13,9 +13,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-  
   color: #8c8c8c;
-  
   margin: 0;
 }
 
@@ -23,7 +21,6 @@
   text-decoration: none;
 }
 
-.annucment{}
 
 .clueLogo{
   width: 20%;
@@ -33,10 +30,11 @@
 .toolbar{
   display: flex;
   justify-content: center;
+  background-color: #fff;
 }
 
 ion-col {
-  background-color: #135d54;
+  background-color: #2c4968;
   border: solid 1px #fff;
   color: #fff;
   text-align: center;
@@ -45,4 +43,14 @@ ion-col {
 
 ion-icon{
   margin-right: 10%;
+}
+
+
+strong{
+  color: #2c4968;
+}
+
+
+.selected-row{
+  background-color: #c76249;
 }
